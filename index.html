@@ -7,10 +7,57 @@
     <meta name="theme-color" content="#f5f7f1">
     <title>Nicolae Ghibulet — Computer Science & Research</title>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/styles.css?v=2">
-    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=20">
+    <script src="assets/js/main.js?v=15" defer></script>
   </head>
   <body>
+    <div class="trail-map-backdrop" aria-hidden="true">
+      <svg class="trail-map" id="trail-map" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <defs>
+          <pattern id="topographic-lines" width="1000" height="340" patternUnits="userSpaceOnUse">
+            <path d="M-40 42C70-18 155-10 248 34s151 58 244 12S665-18 759 29s174 60 286 4M-52 78C65 18 151 28 245 70s155 57 250 11 174-53 269-7 176 59 286 2M-64 116C54 53 142 64 239 105s161 55 260 9 182-51 278-4 177 56 284-1M-76 154C42 89 132 101 232 141s167 52 270 6 190-49 287-2 179 55 282-3" fill="none" stroke="#8ca184" stroke-opacity=".27" stroke-width="1.4"/>
+          </pattern>
+          <symbol id="map-pine" viewBox="0 0 36 48">
+            <path d="M18 1 5 18h7L2 31h12v15h8V31h12L24 18h7L18 1Z" fill="#55734f"/>
+            <path d="M17 10h2v36h-2z" fill="#385c45"/>
+          </symbol>
+          <symbol id="map-hut" viewBox="0 0 72 58">
+            <path d="M5 27 36 4l31 23v27H5V27Z" fill="#f5f3e8" stroke="#58714f" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M2 27 36 2l34 25" fill="none" stroke="#855f43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M30 54V35h13v19M12 34h10v10H12z" fill="#b8c9a4" stroke="#58714f" stroke-width="2"/>
+          </symbol>
+          <symbol id="map-peak" viewBox="0 0 96 76">
+            <path d="M5 65 32 25l14 18L63 8l29 57H5Z" fill="#9fb394" fill-opacity=".54" stroke="#607b5b" stroke-opacity=".52" stroke-width="2" stroke-linejoin="round"/>
+            <path d="m49 40 14-32 14 31-11-6-6 8-6-7-5 6Z" fill="#fafbf5" fill-opacity=".9"/>
+            <path d="M13 68c22-11 46 8 70-4M23 72c17-6 34 6 51-2" fill="none" stroke="#718b67" stroke-opacity=".44" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="63" cy="8" r="3" fill="#58744f"/>
+          </symbol>
+          <symbol id="map-signpost" viewBox="0 0 88 88">
+            <path d="M41 20h6v63h-6z" fill="#755b3e"/>
+            <path d="M44 8h38L72 20l10 12H44z" fill="#f5f3e8" stroke="#58714f" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M43 39H7l10 12L7 63h36z" fill="#c3d0b6" stroke="#58714f" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="m70 14 5 6-5 6M17 45l-5 6 5 6" fill="none" stroke="#58714f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </symbol>
+          <filter id="trail-soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="3"/>
+          </filter>
+          <clipPath id="trail-reveal-clip">
+            <rect id="trail-reveal-rect" x="0" y="0" width="1000" height="0"/>
+          </clipPath>
+        </defs>
+        <rect class="map-paper" id="map-paper" width="1000" height="1000"/>
+        <rect id="map-contours" width="1000" height="1000" fill="url(#topographic-lines)"/>
+        <g id="map-scenery"></g>
+        <path class="trail-progress-glow" id="trail-progress-glow" d=""/>
+        <path class="trail-progress" id="trail-progress" d=""/>
+        <path class="trail-guide" id="trail-guide" d=""/>
+        <g id="trail-stops"></g>
+      </svg>
+    </div>
+    <svg class="trail-sign-overlay" id="trail-sign-overlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+      <g id="trail-signs"></g>
+    </svg>
+    <div class="trail-live-marker" id="trail-live-marker" aria-hidden="true"><span></span></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header">
@@ -58,7 +105,7 @@
         </div>
         <aside class="hero-visual" aria-label="Portrait and research topics">
           <div class="portrait-frame">
-            <img class="profile-photo" src="assets/images/profile.jpg" alt="Portrait of Nicolae Ghibulet">
+            <img class="profile-photo" src="assets/images/profile.jpg" alt="Portrait of Nicolae Ghibulet" width="1274" height="1275" decoding="async">
             <div class="portrait-caption">
               <div><strong>Nicolae Ghibulet</strong><span>MSc Computer Science · Parma</span></div>
               <span class="caption-mark" aria-hidden="true">NG</span>
@@ -103,11 +150,17 @@
           </div>
           <div class="figure-grid">
             <figure class="result-figure">
-              <img src="assets/images/dlpfc-151510.png" alt="DLPFC 151510 tissue section with cluster assignments from original GIST on the left and my thesis modification on the right." loading="lazy">
+              <a class="figure-zoom" href="assets/images/dlpfc-151510.png" target="_blank" rel="noopener noreferrer" aria-label="Open the DLPFC 151510 comparison at full size">
+                <img src="assets/images/dlpfc-151510.png" alt="DLPFC 151510 tissue section with cluster assignments from original GIST on the left and my thesis modification on the right." width="760" height="360" loading="lazy" decoding="async">
+                <span>View full size ↗</span>
+              </a>
               <figcaption><strong>DLPFC 151510</strong><span>Original GIST on the left; thesis modification on the right.</span></figcaption>
             </figure>
             <figure class="result-figure">
-              <img src="assets/images/dlpfc-151669.png" alt="DLPFC 151669 tissue section comparing original GIST with my thesis modification." loading="lazy">
+              <a class="figure-zoom" href="assets/images/dlpfc-151669.png" target="_blank" rel="noopener noreferrer" aria-label="Open the DLPFC 151669 comparison at full size">
+                <img src="assets/images/dlpfc-151669.png" alt="DLPFC 151669 tissue section comparing original GIST with my thesis modification." width="775" height="330" loading="lazy" decoding="async">
+                <span>View full size ↗</span>
+              </a>
               <figcaption><strong>DLPFC 151669</strong><span>A case where spatial compactness and agreement with reference labels did not move together.</span></figcaption>
             </figure>
           </div>
