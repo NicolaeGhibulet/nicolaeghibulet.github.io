@@ -7,57 +7,48 @@
     <meta name="theme-color" content="#f5f7f1">
     <title>Nicolae Ghibulet — Computer Science & Research</title>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/css/styles.css?v=20">
-    <script src="assets/js/main.js?v=15" defer></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=23">
+    <script src="assets/js/main.js?v=18" defer></script>
   </head>
   <body>
-    <div class="trail-map-backdrop" aria-hidden="true">
-      <svg class="trail-map" id="trail-map" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    <div class="nature-motion" aria-hidden="true">
+      <svg class="nature-defs" width="0" height="0" aria-hidden="true" focusable="false">
         <defs>
-          <pattern id="topographic-lines" width="1000" height="340" patternUnits="userSpaceOnUse">
-            <path d="M-40 42C70-18 155-10 248 34s151 58 244 12S665-18 759 29s174 60 286 4M-52 78C65 18 151 28 245 70s155 57 250 11 174-53 269-7 176 59 286 2M-64 116C54 53 142 64 239 105s161 55 260 9 182-51 278-4 177 56 284-1M-76 154C42 89 132 101 232 141s167 52 270 6 190-49 287-2 179 55 282-3" fill="none" stroke="#8ca184" stroke-opacity=".27" stroke-width="1.4"/>
-          </pattern>
-          <symbol id="map-pine" viewBox="0 0 36 48">
-            <path d="M18 1 5 18h7L2 31h12v15h8V31h12L24 18h7L18 1Z" fill="#55734f"/>
-            <path d="M17 10h2v36h-2z" fill="#385c45"/>
+          <symbol id="leaf-birch" viewBox="0 0 100 120">
+            <path class="leaf-outline" d="M18 99C-1 66 19 21 83 9c15 60-11 103-65 90Z"/>
+            <path class="leaf-veins" d="M9 114C31 73 56 39 83 9M25 88l-5-30m19 12-1-31m15 11 2-27M25 88l30-2M39 70l31-5M53 50l25-9"/>
           </symbol>
-          <symbol id="map-hut" viewBox="0 0 72 58">
-            <path d="M5 27 36 4l31 23v27H5V27Z" fill="#f5f3e8" stroke="#58714f" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M2 27 36 2l34 25" fill="none" stroke="#855f43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M30 54V35h13v19M12 34h10v10H12z" fill="#b8c9a4" stroke="#58714f" stroke-width="2"/>
+          <symbol id="leaf-oak" viewBox="0 0 100 120">
+            <path class="leaf-outline" d="M50 106c-19 6-17-9-30-14C4 86 22 76 13 68-1 54 23 57 20 44c-4-16 18-5 16-18C35 12 48 14 51 5c5 10 18 11 15 25-3 12 20 1 17 17-3 12 17 9 5 23-10 10 8 16-7 23-13 6-13 18-31 13Z"/>
+            <path class="leaf-veins" d="M48 118 51 15M50 98 25 87m25-6L24 64m27-2L31 43m19 55 26-13M51 80l24-15M51 61l19-17"/>
           </symbol>
-          <symbol id="map-peak" viewBox="0 0 96 76">
-            <path d="M5 65 32 25l14 18L63 8l29 57H5Z" fill="#9fb394" fill-opacity=".54" stroke="#607b5b" stroke-opacity=".52" stroke-width="2" stroke-linejoin="round"/>
-            <path d="m49 40 14-32 14 31-11-6-6 8-6-7-5 6Z" fill="#fafbf5" fill-opacity=".9"/>
-            <path d="M13 68c22-11 46 8 70-4M23 72c17-6 34 6 51-2" fill="none" stroke="#718b67" stroke-opacity=".44" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="63" cy="8" r="3" fill="#58744f"/>
+          <symbol id="leaf-maple" viewBox="0 0 100 120">
+            <path class="leaf-outline" d="m50 102-12-20-23 2 7-18L4 47l22-1-3-22 16 12L50 5l11 31 17-12-4 23 22 1-18 18 8 18-24-2-12 20Z"/>
+            <path class="leaf-veins" d="M49 117 50 22M50 89 14 51m36 38 36-36M50 74 30 35m20 39 22-39M49 92 23 79m27 13 26-13"/>
           </symbol>
-          <symbol id="map-signpost" viewBox="0 0 88 88">
-            <path d="M41 20h6v63h-6z" fill="#755b3e"/>
-            <path d="M44 8h38L72 20l10 12H44z" fill="#f5f3e8" stroke="#58714f" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="M43 39H7l10 12L7 63h36z" fill="#c3d0b6" stroke="#58714f" stroke-width="2.5" stroke-linejoin="round"/>
-            <path d="m70 14 5 6-5 6M17 45l-5 6 5 6" fill="none" stroke="#58714f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <symbol id="leaf-ginkgo" viewBox="0 0 100 120">
+            <path class="leaf-outline" d="M49 98C34 81 8 68 6 43c11-17 22-23 36-25l8 15 9-16c15 1 29 11 36 26-4 24-29 39-46 55Z"/>
+            <path class="leaf-veins" d="M50 116 49 94M49 94 13 44m36 50L25 31m24 63-9-69m9 69 10-69M49 94l25-62M49 94l38-49"/>
           </symbol>
-          <filter id="trail-soft-glow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="3"/>
-          </filter>
-          <clipPath id="trail-reveal-clip">
-            <rect id="trail-reveal-rect" x="0" y="0" width="1000" height="0"/>
-          </clipPath>
         </defs>
-        <rect class="map-paper" id="map-paper" width="1000" height="1000"/>
-        <rect id="map-contours" width="1000" height="1000" fill="url(#topographic-lines)"/>
-        <g id="map-scenery"></g>
-        <path class="trail-progress-glow" id="trail-progress-glow" d=""/>
-        <path class="trail-progress" id="trail-progress" d=""/>
-        <path class="trail-guide" id="trail-guide" d=""/>
-        <g id="trail-stops"></g>
       </svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 1%; --leaf-size: 94px; --leaf-time: 21s; --leaf-delay: -7s; --leaf-drift: 55px; --leaf-color: #65804e"><use href="#leaf-birch"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 8%; --leaf-size: 68px; --leaf-time: 27s; --leaf-delay: -19s; --leaf-drift: -40px; --leaf-color: #7b874c"><use href="#leaf-oak"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 15%; --leaf-size: 100px; --leaf-time: 24s; --leaf-delay: -13s; --leaf-drift: 75px; --leaf-color: #6c8b64"><use href="#leaf-maple"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 22%; --leaf-size: 76px; --leaf-time: 30s; --leaf-delay: -4s; --leaf-drift: -60px; --leaf-color: #8b9c58"><use href="#leaf-ginkgo"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 29%; --leaf-size: 108px; --leaf-time: 23s; --leaf-delay: -18s; --leaf-drift: 60px; --leaf-color: #6b7d4a"><use href="#leaf-oak"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 36%; --leaf-size: 64px; --leaf-time: 28s; --leaf-delay: -10s; --leaf-drift: -75px; --leaf-color: #648373"><use href="#leaf-birch"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 43%; --leaf-size: 90px; --leaf-time: 25s; --leaf-delay: -21s; --leaf-drift: 45px; --leaf-color: #819651"><use href="#leaf-ginkgo"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 50%; --leaf-size: 78px; --leaf-time: 32s; --leaf-delay: -8s; --leaf-drift: -50px; --leaf-color: #64805b"><use href="#leaf-maple"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 57%; --leaf-size: 102px; --leaf-time: 26s; --leaf-delay: -16s; --leaf-drift: 65px; --leaf-color: #6f8f67"><use href="#leaf-birch"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 64%; --leaf-size: 72px; --leaf-time: 22s; --leaf-delay: -5s; --leaf-drift: -55px; --leaf-color: #97a962"><use href="#leaf-ginkgo"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 71%; --leaf-size: 96px; --leaf-time: 29s; --leaf-delay: -24s; --leaf-drift: 60px; --leaf-color: #778d4f"><use href="#leaf-maple"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 78%; --leaf-size: 66px; --leaf-time: 24s; --leaf-delay: -12s; --leaf-drift: -70px; --leaf-color: #688274"><use href="#leaf-oak"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 84%; --leaf-size: 110px; --leaf-time: 27s; --leaf-delay: -9s; --leaf-drift: 40px; --leaf-color: #8f9f59"><use href="#leaf-ginkgo"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 89%; --leaf-size: 74px; --leaf-time: 20s; --leaf-delay: -16s; --leaf-drift: -65px; --leaf-color: #607e53"><use href="#leaf-oak"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" style="--leaf-x: 94%; --leaf-size: 88px; --leaf-time: 31s; --leaf-delay: -23s; --leaf-drift: -40px; --leaf-color: #739268"><use href="#leaf-maple"/></svg>
+      <svg class="wind-leaf" viewBox="0 0 100 120" data-mobile="hide" style="--leaf-x: 98%; --leaf-size: 70px; --leaf-time: 23s; --leaf-delay: -7s; --leaf-drift: -80px; --leaf-color: #8d9e60"><use href="#leaf-birch"/></svg>
     </div>
-    <svg class="trail-sign-overlay" id="trail-sign-overlay" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-      <g id="trail-signs"></g>
-    </svg>
-    <div class="trail-live-marker" id="trail-live-marker" aria-hidden="true"><span></span></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header">
@@ -123,7 +114,7 @@
       </section>
 
       <section class="section-wrap work-section" id="work" aria-labelledby="work-title">
-        <div class="section-heading">
+        <div class="section-heading" data-reveal>
           <div>
             <p class="eyebrow">Selected work</p>
             <h2 id="work-title">Projects and research</h2>
@@ -251,6 +242,11 @@
     <footer class="site-footer">
       <a class="wordmark footer-wordmark" href="#top"><span class="wordmark-mark" aria-hidden="true">NG</span><span>Nicolae Ghibulet</span></a>
       <p>Research portfolio · 2026</p>
+      <button class="motion-toggle" type="button" aria-pressed="false" hidden>
+        <svg class="motion-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>
+        <svg class="motion-play" viewBox="0 0 16 16" aria-hidden="true"><path d="m5 3 8 5-8 5Z"/></svg>
+        <span>Pause background</span>
+      </button>
       <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
     </footer>
   </body>
